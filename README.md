@@ -1,7 +1,7 @@
 # YML2Jinja
 
 A simple utility to quickly render Jinja2 templates using variables specified in 
-YAML. This is particularly useful utility for quickly creating device 
+a YAML file. This is useful for quickly creating template based device 
 configurations.
 
 ## Example
@@ -10,11 +10,11 @@ configurations.
 
 ## Options
 
-By default, output is written to STDOUT which allowing the contents to be 
-redirected however needed. However, a filename to write (`-w <filename>`) may be 
-specified if necessary.
+By default, output is written to STDOUT allowing the result to be redirected 
+however needed. However a filename (`-w <filename>`) to write may be specified 
+if necessary.
 
-## Installation
+## Developmental Installation
 
 1) Clone the repository
 
@@ -24,8 +24,8 @@ specified if necessary.
 
 3) Run `setup.py`:
    
-    `python setup.py`
+    `python setup.py develop`
 
-4) Use the script
+4) Use the script:
 
     `bin/yml2jinja <yml_filename> <jinja_filename>`   
