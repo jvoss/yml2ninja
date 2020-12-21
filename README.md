@@ -1,18 +1,23 @@
 # YML2Jinja
 
+![tests](https://github.com/jvoss/yml2ninja/workflows/tests/badge.svg?branch=master)
+
 A simple utility to quickly render Jinja2 templates using variables specified in 
 a YAML file. This is useful for quickly creating template based device 
 configurations.
 
 ## Example
 
-    `yml2jinja examples/sample.yml examples/sample.j2`
+    yml2jinja examples/sample.yml examples/sample.j2
+
+Basic checks ensure that all the required template variables are specified
+otherwise an error is raised.
 
 ## Options
 
 By default, output is written to STDOUT allowing the result to be redirected 
-however needed. However a filename (`-w <filename>`) to write may be specified 
-if necessary.
+as needed. However a filename (`-w <filename>`) to write may be specified if 
+necessary.
 
 ## Developmental Installation
 
@@ -28,4 +33,5 @@ if necessary.
 
 4) Use the script:
 
-    `bin/yml2jinja <yml_filename> <jinja_filename>`   
+    `bin/yml2jinja <yml_filename> <jinja_filename>`
+   
