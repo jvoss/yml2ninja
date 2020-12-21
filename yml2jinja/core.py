@@ -8,16 +8,16 @@ from jinja2.meta import find_undeclared_variables
 def arguments():
     '''Parse required arguments'''
 
-    description = 'Process configuration templates.'
+    description = 'Populate Jinja template with YAML definition.'
     parser = argparse.ArgumentParser(description=description)
 
     parser.add_argument('yaml', metavar='yamlfile', type=str,
-                        help='yaml configuration file')
+                        help='yaml filename')
 
     parser.add_argument('template', metavar='templatefile', type=str,
-                        help='yaml configuration file')
+                        help='jinja2 template filename')
 
-    parser.add_argument('-w', '--write', metavar='file', type=str,
+    parser.add_argument('-w', '--write', metavar='filename', type=str,
                         help='write output to file')
 
     return parser.parse_args()
