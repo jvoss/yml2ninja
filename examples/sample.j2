@@ -1,0 +1,40 @@
+!
+version 12.3
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname {{ hostname }}
+!
+boot-start-marker
+boot-end-marker
+!
+enable password {{ enable_password }}
+!
+{% for user in users -%}
+username {{ user['username'] }} password 0 {{ user['password'] }}
+{% endfor -%}
+aaa new-model
+!
+{% if radius_servers is defined() -%}
+aaa group server radius rad_eap
+{% for server in radius_servers -%}
+server {{ server['ip'] }} auth-port {{ server['auth_port'] }} acct-port {{ server['acct_port'] }}
+{% endfor -%}
+{% endif -%}
+!
+aaa authentication login eap_methods group rad_eap
+aaa session-id common
+ip subnet-zero
+ip cef
+!
+{% for interface in interfaces.keys() -%}
+interface {{ interface }}
+{% if interfaces[interface]['ip'] is defined() -%}
+ ip address {{ interfaces[interface]['ip'] }} {{ interfaces[interface]['mask'] }}
+{% else -%}
+ no ip address
+{% endif -%}
+!
+{% endfor -%}

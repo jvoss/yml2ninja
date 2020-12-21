@@ -1,0 +1,21 @@
+---
+# Dependabot config file
+version: 2
+
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      timezone: "America/Chicago"
+      time: "00:00"
+    target-branch: "master"
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      timezone: "America/Chicago"
+      time: "00:00"
+    target-branch: "master"

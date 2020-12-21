@@ -1,0 +1,21 @@
+---
+hostname: 'router'
+
+enable_password: test_enable_password
+
+users:
+  - username: test_user1
+    password: test_password1
+  - username: test_user2
+    password: test_password2
+
+radius_servers:
+  - ip: 10.0.1.1
+    auth_port: 1812
+    acct_port: 1813
+
+interfaces:
+  FastEthernet0:
+    ip: 192.1.12.2 
+    mask: 255.255.255.0
+  FastEthernet1:
