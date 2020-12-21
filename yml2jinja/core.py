@@ -6,7 +6,7 @@ from jinja2.meta import find_undeclared_variables
 
 
 def arguments():
-    '''Parse required arguments'''
+    '''Parse arguments'''
 
     description = 'Populate Jinja template with YAML definition.'
     parser = argparse.ArgumentParser(description=description)
@@ -24,7 +24,7 @@ def arguments():
 
 
 def load_yaml(filename):
-    '''Loads the yml2conf YAML from filename'''
+    '''Load YAML object from filename'''
 
     try:
         return yaml.safe_load(open(filename, 'r'))
@@ -35,6 +35,8 @@ def load_yaml(filename):
 
 
 def render(yaml, template):
+    '''Render Jinja template string using YAML dict'''
+
     env = jinja2.Environment(undefined=jinja2.DebugUndefined)
     template = env.from_string(template)
     rendered = template.render(yaml)

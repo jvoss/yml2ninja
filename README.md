@@ -11,7 +11,7 @@ configurations.
     yml2jinja examples/sample.yml examples/sample.j2
 
 Basic checks ensure that all the required template variables are specified
-otherwise an error is raised.
+otherwise an error (`jinja2.UndefinedError`) is raised.
 
 ## Options
 
